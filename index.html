@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mini Social</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <div class="container">
+        <!-- Auth View -->
+        <div id="auth-view">
+            <!-- Login Form -->
+            <div id="login-form" class="auth-container">
+                <h1>Mini Social</h1>
+                <p style="margin-bottom: 2rem; color: #a0a0a0;">Connect with friends, simply.</p>
+                
+                <input type="text" id="login-username" placeholder="Enter username">
+                <button onclick="login()">Log In</button>
+                
+                <p class="link-text" onclick="showRegister()">Don't have an account? Sign up</p>
+            </div>
+
+            <!-- Register Form -->
+            <div id="register-form" class="auth-container hidden">
+                <h1>Join Us</h1>
+                <input type="text" id="reg-username" placeholder="Choose a username">
+                <button onclick="register()">Sign Up</button>
+                
+                <p class="link-text" onclick="showLogin()">Already have an account? Log in</p>
+            </div>
+        </div>
+
+        <!-- App View (Feed / Profile) -->
+        <div id="app-view" class="hidden">
+            <header>
+                <div class="logo">Mini Social</div>
+                <div class="nav-links">
+                    <span onclick="loadFeed()">Home</span>
+                    <span onclick="loadMyProfile()">Profile</span>
+                    <span onclick="logout()">Logout</span>
+                </div>
+            </header>
+
+            <!-- Feed Section -->
+            <div id="feed-section">
+                <div class="create-post">
+                    <textarea id="post-content" placeholder="What's on your mind?"></textarea>
+                    <button onclick="createPost()">Post</button>
+                </div>
+                
+                <div id="posts-container">
+                    <!-- Posts go here -->
+                </div>
+            </div>
+
+            <!-- Profile Section -->
+            <div id="profile-section" class="hidden">
+                <div class="profile-header">
+                    <h2 id="profile-username">User Profile</h2>
+                    <div class="profile-stats">
+                        <div class="stat-box">
+                            <span class="stat-value" id="profile-posts-count">0</span>
+                            <span class="stat-label">Posts</span>
+                        </div>
+                        <div class="stat-box">
+                            <span class="stat-value" id="profile-followers">0</span>
+                            <span class="stat-label">Followers</span>
+                        </div>
+                        <div class="stat-box">
+                            <span class="stat-value" id="profile-following">0</span>
+                            <span class="stat-label">Following</span>
+                        </div>
+                    </div>
+                    <button id="follow-btn" onclick="toggleFollow()">Follow</button>
+                </div>
+
+                <h3 style="margin-bottom: 15px;">Recent Posts</h3>
+                <div id="profile-posts-container">
+                    <!-- User posts go here -->
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="app.js"></script>
+</body>
+</html>
